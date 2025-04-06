@@ -1,0 +1,9 @@
+25-04-05.11:34:00.220 [main            ] INFO  OrderServiceTest       - Starting OrderServiceTest using Java 1.8.0_281 on pc with PID 39692 (started by pc in E:\code\Java\s-pay-mall\s-pay-mall-ddd-zhb\s-pay-mall-ddd-zhb-app)
+25-04-05.11:34:00.220 [main            ] INFO  OrderServiceTest       - The following 1 profile is active: "dev"
+25-04-05.11:34:03.818 [main            ] INFO  OrderServiceTest       - Started OrderServiceTest in 3.994 seconds (JVM running for 4.778)
+25-04-05.11:34:04.429 [main            ] INFO  HikariDataSource       - HikariPool-1 - Starting...
+25-04-05.11:34:04.849 [main            ] INFO  HikariDataSource       - HikariPool-1 - Start completed.
+25-04-05.11:34:05.233 [main            ] INFO  OrderServiceTest       - 请求参数:{"productId":"10001","userId":"xiaofuge"}
+25-04-05.11:34:05.237 [main            ] INFO  OrderServiceTest       - 测试结果:{"orderId":"56190998513111","payUrl":"暂无"}
+25-04-05.11:34:05.248 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown initiated...
+25-04-05.11:34:05.254 [SpringApplicationShutdownHook] INFO  HikariDataSource       - HikariPool-1 - Shutdown completed.

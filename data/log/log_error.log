@@ -1,0 +1,1 @@
+25-04-06.03:43:26.023 [scheduling-1    ] WARN  PoolBase               - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5899d50 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
