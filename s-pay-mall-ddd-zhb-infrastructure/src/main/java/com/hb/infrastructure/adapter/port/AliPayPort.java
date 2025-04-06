@@ -5,7 +5,9 @@ import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.hb.domain.order.adapter.port.IAliPayPort;
+import com.hb.domain.order.model.entity.MarketPayDiscountEntity;
 import com.hb.domain.order.model.entity.PayOrderEntity;
+import com.hb.domain.order.model.valobj.MarketTypeVO;
 import com.hb.domain.order.model.valobj.OrderStatusVO;
 import com.hb.infrastructure.adapter.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,13 +31,21 @@ public class AliPayPort implements IAliPayPort {
 
     @Override
     public PayOrderEntity doPrepayOrder(String userId, String productId, String productName, String orderId, BigDecimal totalAmount) throws AlipayApiException {
+        return doPrepayOrder(userId,productId,productName,orderId,totalAmount,null);
+    }
+
+    @Override
+    public PayOrderEntity doPrepayOrder(String userId, String productId, String productName, String orderId, BigDecimal totalAmount, MarketPayDiscountEntity marketPayDiscountEntity) throws AlipayApiException {
+        // 支付金额
+        BigDecimal payAmount = null == marketPayDiscountEntity ? totalAmount : marketPayDiscountEntity.getPayPrice();
+
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
         request.setNotifyUrl(notifyUrl);
         request.setReturnUrl(returnUrl);
 
         JSONObject bizContent = new JSONObject();
         bizContent.put("out_trade_no", orderId);
-        bizContent.put("total_amount", totalAmount.toString());
+        bizContent.put("total_amount", payAmount.toString());
         bizContent.put("subject", productName);
         bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");
         request.setBizContent(bizContent.toString());
@@ -46,6 +56,11 @@ public class AliPayPort implements IAliPayPort {
         payOrderEntity.setOrderId(orderId);
         payOrderEntity.setPayUrl(form);
         payOrderEntity.setOrderStatus(OrderStatusVO.PAY_WAIT);
+
+        // 营销信息
+        payOrderEntity.setMarketType(null == marketPayDiscountEntity ? MarketTypeVO.NO_MARKET.getCode():MarketTypeVO.GROUP_BUY_MARKET.getCode());
+        payOrderEntity.setMarketDeductionAmount(null == marketPayDiscountEntity ? BigDecimal.ZERO : marketPayDiscountEntity.getDeductionPrice());
+        payOrderEntity.setPayAmount(payAmount);
 
         repository.updateOrderPayInfo(payOrderEntity);
 

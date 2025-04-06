@@ -5,10 +5,8 @@ import com.hb.domain.order.adapter.port.IAliPayPort;
 import com.hb.domain.order.adapter.port.IProductPort;
 import com.hb.domain.order.adapter.repository.IOrderRepository;
 import com.hb.domain.order.model.aggregate.CreateOrderAggregate;
-import com.hb.domain.order.model.entity.OrderEntity;
-import com.hb.domain.order.model.entity.PayOrderEntity;
-import com.hb.domain.order.model.entity.ProductEntity;
-import com.hb.domain.order.model.entity.ShopCartEntity;
+import com.hb.domain.order.model.entity.*;
+import com.hb.domain.order.model.valobj.MarketTypeVO;
 import com.hb.domain.order.model.valobj.OrderStatusVO;
 import com.hb.types.common.Constants;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.math.BigDecimal;
 
 @Slf4j
-public abstract class AbstractOrderService implements IOrderService{
+public abstract class AbstractOrderService implements IOrderService {
 
     protected final IOrderRepository repository;
     protected final IProductPort productPort;
@@ -41,9 +39,30 @@ public abstract class AbstractOrderService implements IOrderService{
                     .orderId(unpaidOrderEntity.getOrderId())
                     .payUrl(unpaidOrderEntity.getPayUrl())
                     .build();
-        } else if (null != unpaidOrderEntity && Constants.OrderStatusEnum.CREATE.equals(unpaidOrderEntity.getOrderStatusVO())){
+        } else if (null != unpaidOrderEntity && Constants.OrderStatusEnum.CREATE.equals(unpaidOrderEntity.getOrderStatusVO())) {
             log.info("创建订单-存在，存在未创建支付单订单，创建支付单开始 userId:{} productId:{} orderId:{}", shopCartEntity.getUserId(), shopCartEntity.getProductId(), unpaidOrderEntity.getOrderId());
-            PayOrderEntity payOrderEntity = aliPayPort.doPrepayOrder(shopCartEntity.getUserId(), shopCartEntity.getProductId(), unpaidOrderEntity.getProductName(), unpaidOrderEntity.getOrderId(), unpaidOrderEntity.getTotalAmount());
+            Integer marketType = unpaidOrderEntity.getMarketType();
+            BigDecimal marketDeductionAmount = unpaidOrderEntity.getMarketDeductionAmount();
+
+            PayOrderEntity payOrderEntity = null;
+
+            if(MarketTypeVO.GROUP_BUY_MARKET.getCode().equals(marketType) && null == marketDeductionAmount) {
+                MarketPayDiscountEntity marketPayDiscountEntity = this.lockMarketPayOrder(shopCartEntity.getUserId(),
+                        shopCartEntity.getTeamId(),
+                        shopCartEntity.getActivityId(),
+                        shopCartEntity.getProductId(),
+                        unpaidOrderEntity.getOrderId());
+                payOrderEntity = aliPayPort.doPrepayOrder(shopCartEntity.getUserId(), shopCartEntity.getProductId(),
+                        unpaidOrderEntity.getProductName(), unpaidOrderEntity.getOrderId(), unpaidOrderEntity.getTotalAmount(), marketPayDiscountEntity);
+
+            } else if(MarketTypeVO.GROUP_BUY_MARKET.getCode().equals(marketType)) {
+                payOrderEntity = aliPayPort.doPrepayOrder(shopCartEntity.getUserId(), shopCartEntity.getProductId(),
+                        unpaidOrderEntity.getProductName(), unpaidOrderEntity.getOrderId(), unpaidOrderEntity.getPayAmount());
+            } else{
+                payOrderEntity = aliPayPort.doPrepayOrder(shopCartEntity.getUserId(), shopCartEntity.getProductId(),
+                        unpaidOrderEntity.getProductName(), unpaidOrderEntity.getOrderId(), unpaidOrderEntity.getTotalAmount());
+            }
+
             return PayOrderEntity.builder()
                     .orderId(payOrderEntity.getOrderId())
                     .payUrl(payOrderEntity.getPayUrl())
@@ -59,9 +78,26 @@ public abstract class AbstractOrderService implements IOrderService{
                 .orderEntity(orderEntity)
                 .build();
 
+        // 创建本地订单
         this.doSaveOrder(orderAggregate);
 
-        PayOrderEntity payOrderEntity = aliPayPort.doPrepayOrder(shopCartEntity.getUserId(), productEntity.getProductId(), productEntity.getProductName(), orderEntity.getOrderId(), productEntity.getPrice());
+        // 营销锁单
+        MarketPayDiscountEntity marketPayDiscountEntity = null;
+        if (MarketTypeVO.GROUP_BUY_MARKET.equals(shopCartEntity.getMarketTypeVO())) {
+            marketPayDiscountEntity = this.lockMarketPayOrder(shopCartEntity.getUserId(),
+                    shopCartEntity.getTeamId(),
+                    shopCartEntity.getActivityId(),
+                    shopCartEntity.getProductId(),
+                    orderEntity.getOrderId());
+        }
+
+        PayOrderEntity payOrderEntity = aliPayPort.doPrepayOrder(
+                shopCartEntity.getUserId(),
+                productEntity.getProductId(),
+                productEntity.getProductName(),
+                orderEntity.getOrderId(),
+                productEntity.getPrice(),
+                marketPayDiscountEntity);
         log.info("创建订单-完成，生成支付单。userId: {} orderId: {} payUrl: {}", shopCartEntity.getUserId(), orderEntity.getOrderId(), payOrderEntity.getPayUrl());
 
         return PayOrderEntity.builder()
@@ -70,6 +106,7 @@ public abstract class AbstractOrderService implements IOrderService{
                 .build();
     }
 
+    protected abstract MarketPayDiscountEntity lockMarketPayOrder(String userId, String teamId, Long activityId, String productId, String orderId);
 
 
     protected abstract void doSaveOrder(CreateOrderAggregate orderAggregate);

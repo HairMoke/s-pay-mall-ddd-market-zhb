@@ -19,6 +19,19 @@ thread:
         policy: CallerRunsPolicy
 
 
+# 应用配置
+app:
+  config:
+    # 版本，方便通过接口版本升级
+    api-version: v1
+    # 跨域，开发阶段可以设置为 * 不限制
+    cross-origin: '*'
+    # SC 渠道配置 - 拼团对接渠道值、回调通知
+    group-buy-market:
+      api-url: http://127.0.0.1:8091
+      notify-url: http://127.0.0.1:8080/api/v1/test/group_buy_notify
+      source: s01
+      chanel: c01
 
 # 微信公众号对接
 weixin:
@@ -35,7 +48,7 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://192.168.10.88:3306/s-pay-mall?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    url: jdbc:mysql://192.168.10.88:3306/s-pay-mall-ddd-market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   hikari:
     pool-name: Retail_HikariCP
