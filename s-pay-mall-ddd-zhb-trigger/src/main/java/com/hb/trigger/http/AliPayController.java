@@ -101,7 +101,8 @@ public class AliPayController implements IPayService {
 
     /**
      *
-     * http://22ab3946.r32.cpolar.top/api/v1/alipay/alipay_notify_url
+     * 这个因为是免费的内网穿透，所以域名可能随时失效
+     * http://e9365ee.r32.cpolar.top/api/v1/alipay/alipay_notify_url
      */
     @RequestMapping(value = "alipay_notify_url", method = RequestMethod.POST)
     public String payNotify(HttpServletRequest request) throws AlipayApiException, ParseException {
