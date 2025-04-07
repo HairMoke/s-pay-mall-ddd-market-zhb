@@ -5,6 +5,7 @@ import com.hb.domain.order.model.entity.OrderEntity;
 import com.hb.domain.order.model.entity.PayOrderEntity;
 import com.hb.domain.order.model.entity.ShopCartEntity;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IOrderRepository {
@@ -15,11 +16,18 @@ public interface IOrderRepository {
 
     public void updateOrderPayInfo(PayOrderEntity payOrderEntity);
 
-    void changeOrderPaySuccess(String orderId);
+    void changeOrderPaySuccess(String orderId, Date payTime);
 
     List<String> queryNoPayNotifyOrder();
 
     List<String> queryTimeoutCloseOrderList();
 
     boolean changeOrderClose(String orderId);
+
+    OrderEntity queryOrderByOrderId(String orderId);
+
+    void changeMarketOrderPaySuccess(String orderId);
+
+    void changeOrderMarketSettlement(List<String> outTradeNoList);
+
 }

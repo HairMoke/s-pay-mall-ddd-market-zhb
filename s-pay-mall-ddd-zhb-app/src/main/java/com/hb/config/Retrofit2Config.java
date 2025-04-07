@@ -38,4 +38,6 @@ public class Retrofit2Config {
         return retrofit.create(IGroupBuyMarketService.class);
     }
 
+
+
 }
