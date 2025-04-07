@@ -5486,3 +5486,666 @@ Caused by: java.net.SocketException: Socket closed
 	at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:129)
 	... 34 common frames omitted
 25-04-07.16:30:52.800 [HikariPool-1 housekeeper] WARN  HikariPool             - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m51s913ms294µs700ns).
+25-04-07.19:15:28.585 [http-nio-8080-exec-2] ERROR ProductPort            - 营销锁单失败ojK1R7Ka2ruj8LK4HKU5hBGeEsuc
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.lockMarketPayOrder(ProductPort.java:79)
+	at com.hb.domain.order.service.OrderService.lockMarketPayOrder(OrderService.java:31)
+	at com.hb.domain.order.service.AbstractOrderService.createOrder(AbstractOrderService.java:87)
+	at com.hb.trigger.http.AliPayController.createPayOrder(AliPayController.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+25-04-07.19:16:31.447 [scheduling-1    ] ERROR err                    - 2025-04-07 19:16:31^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 11^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=kf%2FT25%2FsLevXJbndoir5it4lx2vuUa71OFiBt85IzAhOCc3g3dnrrOBIwqKXI2S3rjDPkomZCIKIoaAu5ehSoHArfHfZNgFS6yWaoWEyjLJ8oumquIoTf3tKFk66eUSDxsmmawCFd09MFrBtXXhueD2tZRw8%2BHQFJzSnnH5ZgTjxhtfovrC7W8ojB8xhRxVDk4LC6%2BiQ8bLUAoCb2U8yHbeUlZCxKyhckPSUcLp5FflZHi5HSC0p3%2F%2FI4VyGyuK5%2FxoFoKa4S0unsMond590gD0UWUqnhKEiuauwN%2BToJsJBeZDnf3%2FC90GvVlRQ1iLuJKeAMUf98AX8Y7RKdn2hMQ%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07+19%3A16%3A30&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=kf%2FT25%2FsLevXJbndoir5it4lx2vuUa71OFiBt85IzAhOCc3g3dnrrOBIwqKXI2S3rjDPkomZCIKIoaAu5ehSoHArfHfZNgFS6yWaoWEyjLJ8oumquIoTf3tKFk66eUSDxsmmawCFd09MFrBtXXhueD2tZRw8%2BHQFJzSnnH5ZgTjxhtfovrC7W8ojB8xhRxVDk4LC6%2BiQ8bLUAoCb2U8yHbeUlZCxKyhckPSUcLp5FflZHi5HSC0p3%2F%2FI4VyGyuK5%2FxoFoKa4S0unsMond590gD0UWUqnhKEiuauwN%2BToJsJBeZDnf3%2FC90GvVlRQ1iLuJKeAMUf98AX8Y7RKdn2hMQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A16%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/07 19:16:30</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-07.19:16:31.447 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=kf%2FT25%2FsLevXJbndoir5it4lx2vuUa71OFiBt85IzAhOCc3g3dnrrOBIwqKXI2S3rjDPkomZCIKIoaAu5ehSoHArfHfZNgFS6yWaoWEyjLJ8oumquIoTf3tKFk66eUSDxsmmawCFd09MFrBtXXhueD2tZRw8%2BHQFJzSnnH5ZgTjxhtfovrC7W8ojB8xhRxVDk4LC6%2BiQ8bLUAoCb2U8yHbeUlZCxKyhckPSUcLp5FflZHi5HSC0p3%2F%2FI4VyGyuK5%2FxoFoKa4S0unsMond590gD0UWUqnhKEiuauwN%2BToJsJBeZDnf3%2FC90GvVlRQ1iLuJKeAMUf98AX8Y7RKdn2hMQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A16%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:16:30</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=kf%2FT25%2FsLevXJbndoir5it4lx2vuUa71OFiBt85IzAhOCc3g3dnrrOBIwqKXI2S3rjDPkomZCIKIoaAu5ehSoHArfHfZNgFS6yWaoWEyjLJ8oumquIoTf3tKFk66eUSDxsmmawCFd09MFrBtXXhueD2tZRw8%2BHQFJzSnnH5ZgTjxhtfovrC7W8ojB8xhRxVDk4LC6%2BiQ8bLUAoCb2U8yHbeUlZCxKyhckPSUcLp5FflZHi5HSC0p3%2F%2FI4VyGyuK5%2FxoFoKa4S0unsMond590gD0UWUqnhKEiuauwN%2BToJsJBeZDnf3%2FC90GvVlRQ1iLuJKeAMUf98AX8Y7RKdn2hMQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A16%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:16:30</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 20 common frames omitted
+25-04-07.19:17:00.713 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 11^_^2025-04-07 19:17:00^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=OICZHoq6EAd5OBoNGdclgWpK3nOAb2u0tYG/55VrjFnTeIdfeXgCRwfLYPmFeiKySnc+z0WIBjj5Djjy1SMaeEI4UV+/RtUklsQrtsnCgxu8cjF2/X7RnLlcIJO2bxmMsX5OsPrBUp3OfYRu+jgRbgCAJWZ5ZNnjf/bxuKx+VxQFDoXQmzYPTDZJQPvsOI0MEHegnnm9k+Q4b2f4x4Q3oilSkFfNESXrIKUNWpLMSDRx7WIKuABo86Ms4RlRWQZXjg+SMJfCyzS7yDkfbKpftFi5hDnxH08KjBL5o3R0nhpkyyCsrBqH+yKpXMgNQggjVxr/WYkQ8uuJhFoZ17WA0Q==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07 19:17:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060d2b35174402461965842025934&biz_content={"out_trade_no":"781161136468"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"781161136468","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"EfQW2yujb9g3LxqIoEliveH71OQ7uH5LRqIlWoVjTOmV9U6/LrPajTKPZ5FalpZmc0e4q+CtWf9kKz/kClifgbN9We/5OwqaCH5vGAkXJr0BmI8ABBmspVb1fFS92n3Zq4oRmI4Wr12ioznto3rxGUVQd1EjInLsmCbpoTfR2VLLVfl6bqNXEttusHgxa0UK7MAHOj/hrFJaRiEiNwd+z3tLgIO+ttrxBmOwNLLEMuFnM2lviVlvLOf55Lu3PDr5bKoacxVYeQwAgjT5wS5z3ow6suEGa0pWiiUGZCRnM3sE9KRxnfscHynAus+lEgwNKzPXDH3dl0tVfF8kPYc9Eg=="}^_^13ms,540ms,141ms^_^trace_id:060d2b35174402461965842025934
+25-04-07.19:17:42.528 [scheduling-1    ] WARN  PoolBase               - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@512e0b7d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+25-04-07.19:19:45.050 [http-nio-8080-exec-4] ERROR ProductPort            - 营销锁单失败ojK1R7Ka2ruj8LK4HKU5hBGeEsuc
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.lockMarketPayOrder(ProductPort.java:79)
+	at com.hb.domain.order.service.OrderService.lockMarketPayOrder(OrderService.java:31)
+	at com.hb.domain.order.service.AbstractOrderService.createOrder(AbstractOrderService.java:87)
+	at com.hb.trigger.http.AliPayController.createPayOrder(AliPayController.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+25-04-07.19:20:52.046 [http-nio-8080-exec-8] ERROR ProductPort            - 营销锁单失败ojK1R7Ka2ruj8LK4HKU5hBGeEsuc
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.lockMarketPayOrder(ProductPort.java:79)
+	at com.hb.domain.order.service.OrderService.lockMarketPayOrder(OrderService.java:31)
+	at com.hb.domain.order.service.AbstractOrderService.createOrder(AbstractOrderService.java:87)
+	at com.hb.trigger.http.AliPayController.createPayOrder(AliPayController.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+25-04-07.19:22:01.283 [scheduling-1    ] ERROR err                    - 2025-04-07 19:22:01^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 11^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=Bbq30kmS0N2mLhxL83yXs3084cxL8bnbOWJRQOe6DN5IckSo7WXoyiUS0CoP27tsAwecWmX4WZIJYaBwCWZ%2FbOepC7ECHS6Ju1AeGKpMPlqyESwbOTrHTJI8G2pSp8hDjXc011BVzUmg3qsGSGaGtOsYSnv1E0Nzdd6g9x9mDZu%2B%2BRwhGRbtapTuYoFO8B9zoVR5HmgcSLBvdsx%2FFen3S73BcUkMQ7O6dnoiMAUg4CyNrd3jSL4E%2BlZv55IYUwPA0dk04SKzr%2BYJkzlq4qJWawUFKc%2BxjdwzHY0vTLW1I7XDviwtPhcpT7sBJDEsaVCaIZIZmNRKMxA3MuIPsUfD9A%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07+19%3A22%3A00&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=Bbq30kmS0N2mLhxL83yXs3084cxL8bnbOWJRQOe6DN5IckSo7WXoyiUS0CoP27tsAwecWmX4WZIJYaBwCWZ%2FbOepC7ECHS6Ju1AeGKpMPlqyESwbOTrHTJI8G2pSp8hDjXc011BVzUmg3qsGSGaGtOsYSnv1E0Nzdd6g9x9mDZu%2B%2BRwhGRbtapTuYoFO8B9zoVR5HmgcSLBvdsx%2FFen3S73BcUkMQ7O6dnoiMAUg4CyNrd3jSL4E%2BlZv55IYUwPA0dk04SKzr%2BYJkzlq4qJWawUFKc%2BxjdwzHY0vTLW1I7XDviwtPhcpT7sBJDEsaVCaIZIZmNRKMxA3MuIPsUfD9A%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/07 19:22:00</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-07.19:22:01.284 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=Bbq30kmS0N2mLhxL83yXs3084cxL8bnbOWJRQOe6DN5IckSo7WXoyiUS0CoP27tsAwecWmX4WZIJYaBwCWZ%2FbOepC7ECHS6Ju1AeGKpMPlqyESwbOTrHTJI8G2pSp8hDjXc011BVzUmg3qsGSGaGtOsYSnv1E0Nzdd6g9x9mDZu%2B%2BRwhGRbtapTuYoFO8B9zoVR5HmgcSLBvdsx%2FFen3S73BcUkMQ7O6dnoiMAUg4CyNrd3jSL4E%2BlZv55IYUwPA0dk04SKzr%2BYJkzlq4qJWawUFKc%2BxjdwzHY0vTLW1I7XDviwtPhcpT7sBJDEsaVCaIZIZmNRKMxA3MuIPsUfD9A%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:22:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=Bbq30kmS0N2mLhxL83yXs3084cxL8bnbOWJRQOe6DN5IckSo7WXoyiUS0CoP27tsAwecWmX4WZIJYaBwCWZ%2FbOepC7ECHS6Ju1AeGKpMPlqyESwbOTrHTJI8G2pSp8hDjXc011BVzUmg3qsGSGaGtOsYSnv1E0Nzdd6g9x9mDZu%2B%2BRwhGRbtapTuYoFO8B9zoVR5HmgcSLBvdsx%2FFen3S73BcUkMQ7O6dnoiMAUg4CyNrd3jSL4E%2BlZv55IYUwPA0dk04SKzr%2BYJkzlq4qJWawUFKc%2BxjdwzHY0vTLW1I7XDviwtPhcpT7sBJDEsaVCaIZIZmNRKMxA3MuIPsUfD9A%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:22:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 20 common frames omitted
+25-04-07.19:22:30.233 [scheduling-1    ] ERROR err                    - 2025-04-07 19:22:30^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 11^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=dItPE9zscPCzFzOzZxaj9DKxpJmbvkRDgJhBqwHi4HTuh8jUQkkBL%2BILhfOvaUaj70ECSlEB%2BLYKak9GO66R58HJ6j8Wcmut0uHIlV6Oqiz2k6ki4daecg2YY5HASZu7jWRzIV6kHrFBxnjGTB83D7piB3FWGblvHFISsz5jP33EPmMSmUg5fvv3LOgVsUSkGzFATlTiViFPwmeb8FWT79aXckjHE%2BFhNl0JpNJy9HFz1u5qMclFfTPanURKiWCd6b0PtYags1u1tI17c8kx%2BKrjAjsdjW8fcOdCQr8ps9smLEmaEYvPy%2BGIUeI2%2F07regrNqatcNjqQcBPaCYug8w%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07+19%3A22%3A30&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=dItPE9zscPCzFzOzZxaj9DKxpJmbvkRDgJhBqwHi4HTuh8jUQkkBL%2BILhfOvaUaj70ECSlEB%2BLYKak9GO66R58HJ6j8Wcmut0uHIlV6Oqiz2k6ki4daecg2YY5HASZu7jWRzIV6kHrFBxnjGTB83D7piB3FWGblvHFISsz5jP33EPmMSmUg5fvv3LOgVsUSkGzFATlTiViFPwmeb8FWT79aXckjHE%2BFhNl0JpNJy9HFz1u5qMclFfTPanURKiWCd6b0PtYags1u1tI17c8kx%2BKrjAjsdjW8fcOdCQr8ps9smLEmaEYvPy%2BGIUeI2%2F07regrNqatcNjqQcBPaCYug8w%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/07 19:22:29</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-07.19:22:30.234 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=dItPE9zscPCzFzOzZxaj9DKxpJmbvkRDgJhBqwHi4HTuh8jUQkkBL%2BILhfOvaUaj70ECSlEB%2BLYKak9GO66R58HJ6j8Wcmut0uHIlV6Oqiz2k6ki4daecg2YY5HASZu7jWRzIV6kHrFBxnjGTB83D7piB3FWGblvHFISsz5jP33EPmMSmUg5fvv3LOgVsUSkGzFATlTiViFPwmeb8FWT79aXckjHE%2BFhNl0JpNJy9HFz1u5qMclFfTPanURKiWCd6b0PtYags1u1tI17c8kx%2BKrjAjsdjW8fcOdCQr8ps9smLEmaEYvPy%2BGIUeI2%2F07regrNqatcNjqQcBPaCYug8w%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:22:29</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=dItPE9zscPCzFzOzZxaj9DKxpJmbvkRDgJhBqwHi4HTuh8jUQkkBL%2BILhfOvaUaj70ECSlEB%2BLYKak9GO66R58HJ6j8Wcmut0uHIlV6Oqiz2k6ki4daecg2YY5HASZu7jWRzIV6kHrFBxnjGTB83D7piB3FWGblvHFISsz5jP33EPmMSmUg5fvv3LOgVsUSkGzFATlTiViFPwmeb8FWT79aXckjHE%2BFhNl0JpNJy9HFz1u5qMclFfTPanURKiWCd6b0PtYags1u1tI17c8kx%2BKrjAjsdjW8fcOdCQr8ps9smLEmaEYvPy%2BGIUeI2%2F07regrNqatcNjqQcBPaCYug8w%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A22%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:22:29</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 20 common frames omitted
+25-04-07.19:23:01.672 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 11^_^2025-04-07 19:23:01^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=n8BNVK40m4KqhBVZLmuduvgelkVojP18v8dyiFDRQv3vxV1aZnfFD0gcZOUKoXxwc08aM8SC5ZWokgoxtryEB/j8qFtnaLoczN/3/AN2YUYeM+3zdPgLgR225ZOBn518RYtmKuLCYwmcdUZfT5TlVlhDIsuH2fijU0gpVAfjbbmgvYKmDijSA7/bUCA+9TiiYB7aLCZ9tcGK2KuOaRPpVlI9Yq3JlGHHFtGIsfVnTatXYQGw5L4w/3yRoy5vG39gk34ODrubRz7cBdf38gKW1BFyJf5rBTkW7wfmP9W6d/vPkc3jbr5W3FEdXOtymi5z3CAJOhDz2HgMd6jlwmJbdw==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07 19:23:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=0601d58b174402498063145584827&biz_content={"out_trade_no":"245777484358"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"245777484358","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"gLGEzKk5O6yCT4yIBFK9j2JFR6XK1PonRSA81DAPD4vScTOZH2hCHJ1g7AjLzEXZH20fOo8GTgqEda5tt+ngBw993TY2osd56NWPQc7D7Er0yTXztNztQchcd1JaYNYJvOT3Tm+ND67nkVALJc7QceWaery2RxHb0SLM8xo/cvDeM3nqCPs8LecbojkpCpSog4AIk/kFcL0IAuXxWL9J/0TiM4Yib/GOjdPuAG2dVr27KrteXhFY+Ng5WG8uokk3RYhIhlgMvl5M/luMMyhJHW4a+EuNd9WKLX1KMdBXw1DIzNfT41dM0Cw2tdBipXmrfbHd8VZjc4WzqskFsWUBkQ=="}^_^19ms,1622ms,12ms^_^trace_id:0601d58b174402498063145584827
+25-04-07.19:27:01.303 [scheduling-1    ] ERROR err                    - 2025-04-07 19:27:01^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 11^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=i3qf8QkxGKw7tMLu8b5S3YCPwSLNvdXZcaMyHnJATu%2FyEaTI022lAbUKz42ZoZrkruNOuOtTf%2FD9zxd%2FvA5B6Lk%2Bx%2Fwku77ZeaivIVYR3QqQRqxw%2BW%2B6V7M2dto4lxuY8p6R3OBnZUWgUR5iJhcM8hrlbV82MlmBUMR60AslikSmfXKi0nuiIZ%2BaabgKZ7ASuxtiOjDdHv20yOSCZHVcwstTNg7FDBx%2FgebjnsrkIMqlewMqkBcaXoTWrv%2FtP%2BFRQp0m5Pxyxug84aATO1hNH4g%2FYJt23OJZmlHnmTHTAYpmj389Ad%2BhJyP2LK7NyjDSwVMQVzSaMRJJ4ouBitpTyQ%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07+19%3A27%3A00&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=i3qf8QkxGKw7tMLu8b5S3YCPwSLNvdXZcaMyHnJATu%2FyEaTI022lAbUKz42ZoZrkruNOuOtTf%2FD9zxd%2FvA5B6Lk%2Bx%2Fwku77ZeaivIVYR3QqQRqxw%2BW%2B6V7M2dto4lxuY8p6R3OBnZUWgUR5iJhcM8hrlbV82MlmBUMR60AslikSmfXKi0nuiIZ%2BaabgKZ7ASuxtiOjDdHv20yOSCZHVcwstTNg7FDBx%2FgebjnsrkIMqlewMqkBcaXoTWrv%2FtP%2BFRQp0m5Pxyxug84aATO1hNH4g%2FYJt23OJZmlHnmTHTAYpmj389Ad%2BhJyP2LK7NyjDSwVMQVzSaMRJJ4ouBitpTyQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A27%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/07 19:27:00</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-07.19:27:01.304 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=i3qf8QkxGKw7tMLu8b5S3YCPwSLNvdXZcaMyHnJATu%2FyEaTI022lAbUKz42ZoZrkruNOuOtTf%2FD9zxd%2FvA5B6Lk%2Bx%2Fwku77ZeaivIVYR3QqQRqxw%2BW%2B6V7M2dto4lxuY8p6R3OBnZUWgUR5iJhcM8hrlbV82MlmBUMR60AslikSmfXKi0nuiIZ%2BaabgKZ7ASuxtiOjDdHv20yOSCZHVcwstTNg7FDBx%2FgebjnsrkIMqlewMqkBcaXoTWrv%2FtP%2BFRQp0m5Pxyxug84aATO1hNH4g%2FYJt23OJZmlHnmTHTAYpmj389Ad%2BhJyP2LK7NyjDSwVMQVzSaMRJJ4ouBitpTyQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A27%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:27:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=i3qf8QkxGKw7tMLu8b5S3YCPwSLNvdXZcaMyHnJATu%2FyEaTI022lAbUKz42ZoZrkruNOuOtTf%2FD9zxd%2FvA5B6Lk%2Bx%2Fwku77ZeaivIVYR3QqQRqxw%2BW%2B6V7M2dto4lxuY8p6R3OBnZUWgUR5iJhcM8hrlbV82MlmBUMR60AslikSmfXKi0nuiIZ%2BaabgKZ7ASuxtiOjDdHv20yOSCZHVcwstTNg7FDBx%2FgebjnsrkIMqlewMqkBcaXoTWrv%2FtP%2BFRQp0m5Pxyxug84aATO1hNH4g%2FYJt23OJZmlHnmTHTAYpmj389Ad%2BhJyP2LK7NyjDSwVMQVzSaMRJJ4ouBitpTyQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A27%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:27:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 19 common frames omitted
+25-04-07.19:28:15.063 [http-nio-8080-exec-2] ERROR ProductPort            - 营销锁单失败xiaofuge04
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.lockMarketPayOrder(ProductPort.java:79)
+	at com.hb.domain.order.service.OrderService.lockMarketPayOrder(OrderService.java:31)
+	at com.hb.domain.order.service.AbstractOrderService.createOrder(AbstractOrderService.java:87)
+	at com.hb.trigger.http.AliPayController.createPayOrder(AliPayController.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+25-04-07.19:29:32.254 [scheduling-1    ] ERROR err                    - 2025-04-07 19:29:32^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 11^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=VuRHQDDlDnrNkkTvib%2B2zE3SZ9vF6qi59IKzieeSVtiMcLOXihb%2F2wADx8vE9YZHkNt4ZC0a2gq5QC6Qi6etg0Eh%2BssIb36UjhOVs75yZi1a8X71lNTOj8r1YoQW2M3%2BPFeI7TaO0Q8VQb6Qkb%2B6HtI1ea9sCcRk8vWHB%2BpF81UMp5BGZ1s%2FeYIq4LCh7UEa4q7mxLc0iTnN0mIzS1OL%2B30VWHipBFP6uI2F%2F5aiZTCTxaNhNXbO74bPIrD40nhbeaa%2BaTgTQzQXbM7eTFfVvbCUWns0AFQxC6qo3tJV4%2BxKciognvtMlUtfVB5tJpvwoizNQOZjGnQGUO%2B%2FdzWD8g%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-07+19%3A29%3A30&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=VuRHQDDlDnrNkkTvib%2B2zE3SZ9vF6qi59IKzieeSVtiMcLOXihb%2F2wADx8vE9YZHkNt4ZC0a2gq5QC6Qi6etg0Eh%2BssIb36UjhOVs75yZi1a8X71lNTOj8r1YoQW2M3%2BPFeI7TaO0Q8VQb6Qkb%2B6HtI1ea9sCcRk8vWHB%2BpF81UMp5BGZ1s%2FeYIq4LCh7UEa4q7mxLc0iTnN0mIzS1OL%2B30VWHipBFP6uI2F%2F5aiZTCTxaNhNXbO74bPIrD40nhbeaa%2BaTgTQzQXbM7eTFfVvbCUWns0AFQxC6qo3tJV4%2BxKciognvtMlUtfVB5tJpvwoizNQOZjGnQGUO%2B%2FdzWD8g%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A29%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/07 19:29:31</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-07.19:29:32.254 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=VuRHQDDlDnrNkkTvib%2B2zE3SZ9vF6qi59IKzieeSVtiMcLOXihb%2F2wADx8vE9YZHkNt4ZC0a2gq5QC6Qi6etg0Eh%2BssIb36UjhOVs75yZi1a8X71lNTOj8r1YoQW2M3%2BPFeI7TaO0Q8VQb6Qkb%2B6HtI1ea9sCcRk8vWHB%2BpF81UMp5BGZ1s%2FeYIq4LCh7UEa4q7mxLc0iTnN0mIzS1OL%2B30VWHipBFP6uI2F%2F5aiZTCTxaNhNXbO74bPIrD40nhbeaa%2BaTgTQzQXbM7eTFfVvbCUWns0AFQxC6qo3tJV4%2BxKciognvtMlUtfVB5tJpvwoizNQOZjGnQGUO%2B%2FdzWD8g%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A29%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:29:31</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=VuRHQDDlDnrNkkTvib%2B2zE3SZ9vF6qi59IKzieeSVtiMcLOXihb%2F2wADx8vE9YZHkNt4ZC0a2gq5QC6Qi6etg0Eh%2BssIb36UjhOVs75yZi1a8X71lNTOj8r1YoQW2M3%2BPFeI7TaO0Q8VQb6Qkb%2B6HtI1ea9sCcRk8vWHB%2BpF81UMp5BGZ1s%2FeYIq4LCh7UEa4q7mxLc0iTnN0mIzS1OL%2B30VWHipBFP6uI2F%2F5aiZTCTxaNhNXbO74bPIrD40nhbeaa%2BaTgTQzQXbM7eTFfVvbCUWns0AFQxC6qo3tJV4%2BxKciognvtMlUtfVB5tJpvwoizNQOZjGnQGUO%2B%2FdzWD8g%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-07+19%3A29%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/07 19:29:31</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 19 common frames omitted
+25-04-07.19:31:15.135 [scheduling-1    ] ERROR ProductPort            - 营销结算失败xiaofuge05
+java.net.SocketTimeoutException: timeout
+	at okio.SocketAsyncTimeout.newTimeoutException(JvmOkio.kt:143)
+	at okio.AsyncTimeout.access$newTimeoutException(AsyncTimeout.kt:162)
+	at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:335)
+	at okio.RealBufferedSource.indexOf(RealBufferedSource.kt:427)
+	at okio.RealBufferedSource.readUtf8LineStrict(RealBufferedSource.kt:320)
+	at okhttp3.internal.http1.HeadersReader.readLine(HeadersReader.kt:29)
+	at okhttp3.internal.http1.Http1ExchangeCodec.readResponseHeaders(Http1ExchangeCodec.kt:178)
+	at okhttp3.internal.connection.Exchange.readResponseHeaders(Exchange.kt:106)
+	at okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.kt:79)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:34)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76)
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109)
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201)
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154)
+	at retrofit2.OkHttpCall.execute(OkHttpCall.java:204)
+	at com.hb.infrastructure.adapter.port.ProductPort.settlementMarketPayOrder(ProductPort.java:111)
+	at com.hb.domain.order.service.OrderService.changeOrderPaySuccess(OrderService.java:48)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:50)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.endRead(NioSocketImpl.java:253)
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:332)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at okio.InputStreamSource.read(JvmOkio.kt:90)
+	at okio.AsyncTimeout$source$1.read(AsyncTimeout.kt:129)
+	... 34 common frames omitted
