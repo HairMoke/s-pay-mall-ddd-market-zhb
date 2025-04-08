@@ -1,32 +1,207 @@
-25-04-08.10:18:29.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
-org.springframework.amqp.AmqpConnectException: java.net.ConnectException: Connection timed out: connect
-	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:61)
-	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:603)
-	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:725)
-	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:252)
-	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2210)
-	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2183)
-	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2163)
-	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:463)
-	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:447)
-	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1942)
-	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1915)
-	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1384)
-	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230)
+25-04-09.00:00:00.428 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 10^_^2025-04-09 00:00:00^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=jOUlRGGg3mzEnJJUtW7oBLrxUU2Fcem8P53FvNLJ0+4k8aWOuAik/obFrzEwxlWqREF7M5+Ps+pb5wDh14KC5soktDOcxUcfB37KVBJYu+D7ov08mUIjcuEIgA0e4XSFn6+towBH6xLniy5K1S9HWdPOrplS4qqdoIo1vMSWB4v6dL12golsiTSjjFh8qpEOKD/leiacUqyFQzeGXg+AqSX73DlJlUpP0vwt+vjU3SOIxdBml4rzliEdXOG7VUI6HNVkNYX/yjV4UgsC51AsBF+pgh24U6jnYE3DyULSulwnbX3eD941rKyvn/1CSchQnf852P8Qr8mp+1V/fglQnQ==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:00:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060d2b35174412799993625135934&biz_content={"out_trade_no":"088910639847"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"088910639847","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"G6v42/1jJFY/5ji7Xie9Pm2cgs5eYaV1I47SgB/a8Eta+z4VzpjJlU6N5fguqM3dYCUPYBkEkx3tT759uTVOIcB/w+qd1v27ySiBo8YoGDOdxTtRhju6fDd8DY74RViqdzWRdBawCwwbRCSlPcUnbyDwMSB+yugH8RILQ4MxX3+A5a8CMOxQnuCx95EDeC9POQdqsei/J5k04/9POWFmSQQJcg6FeVJJ13YjzM3nr+h33GjkQPNONR6wjCH00p53wUuwnmyrKjKsHycAzyGz3qupALK48Gcrm4qaajnb1ApSku80LfSyTJrwcODgLYHk6xKHtbIg2gHx1Jpfht7jvg=="}^_^11ms,381ms,13ms^_^trace_id:060d2b35174412799993625135934
+25-04-09.00:00:31.418 [scheduling-1    ] ERROR err                    - 2025-04-09 00:00:31^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 10^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=bNusWkOwWYVRMA0C0keoL82lVTQugFT%2BUiig1dqZ11osQj76w%2F7tl6PqSuwsWXaj4DqYNqWIS7mHif%2F5qKLedn6zmVGLOSuVoHZ6%2BMe%2B9wFUaVIccXusOEh5%2B7W9sMJK6drQFtglMNCWP5XmSQXFgPxCIXZfVInuz3bbba%2BeMyY5eODLJmlibeSZuUPUaji5uQmVhLp25wOrtAtBgdbfvrHd6ekslVr9ePzK2GaqH1Q7qJefYOtIHCeNtfhUXEZ336R8FNj2D9LAbVib9uQMMQ8yQaBAiSrm38Tal1AMh%2BVCzU1l8VdqLYcBW5t2Y4XhJV%2BczOGNSBlfy5e1yZJiWQ%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09+00%3A00%3A30&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=bNusWkOwWYVRMA0C0keoL82lVTQugFT%2BUiig1dqZ11osQj76w%2F7tl6PqSuwsWXaj4DqYNqWIS7mHif%2F5qKLedn6zmVGLOSuVoHZ6%2BMe%2B9wFUaVIccXusOEh5%2B7W9sMJK6drQFtglMNCWP5XmSQXFgPxCIXZfVInuz3bbba%2BeMyY5eODLJmlibeSZuUPUaji5uQmVhLp25wOrtAtBgdbfvrHd6ekslVr9ePzK2GaqH1Q7qJefYOtIHCeNtfhUXEZ336R8FNj2D9LAbVib9uQMMQ8yQaBAiSrm38Tal1AMh%2BVCzU1l8VdqLYcBW5t2Y4XhJV%2BczOGNSBlfy5e1yZJiWQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A00%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/09 00:00:31</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-09.00:00:31.420 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=bNusWkOwWYVRMA0C0keoL82lVTQugFT%2BUiig1dqZ11osQj76w%2F7tl6PqSuwsWXaj4DqYNqWIS7mHif%2F5qKLedn6zmVGLOSuVoHZ6%2BMe%2B9wFUaVIccXusOEh5%2B7W9sMJK6drQFtglMNCWP5XmSQXFgPxCIXZfVInuz3bbba%2BeMyY5eODLJmlibeSZuUPUaji5uQmVhLp25wOrtAtBgdbfvrHd6ekslVr9ePzK2GaqH1Q7qJefYOtIHCeNtfhUXEZ336R8FNj2D9LAbVib9uQMMQ8yQaBAiSrm38Tal1AMh%2BVCzU1l8VdqLYcBW5t2Y4XhJV%2BczOGNSBlfy5e1yZJiWQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A00%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/09 00:00:31</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:748)
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:81)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:476)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:218)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:200)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:162)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:394)
-	at java.net.Socket.connect(Socket.java:606)
-	at com.rabbitmq.client.impl.SocketFrameHandlerFactory.create(SocketFrameHandlerFactory.java:60)
-	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1223)
-	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1173)
-	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:641)
-	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:616)
-	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:566)
-	... 12 common frames omitted
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=bNusWkOwWYVRMA0C0keoL82lVTQugFT%2BUiig1dqZ11osQj76w%2F7tl6PqSuwsWXaj4DqYNqWIS7mHif%2F5qKLedn6zmVGLOSuVoHZ6%2BMe%2B9wFUaVIccXusOEh5%2B7W9sMJK6drQFtglMNCWP5XmSQXFgPxCIXZfVInuz3bbba%2BeMyY5eODLJmlibeSZuUPUaji5uQmVhLp25wOrtAtBgdbfvrHd6ekslVr9ePzK2GaqH1Q7qJefYOtIHCeNtfhUXEZ336R8FNj2D9LAbVib9uQMMQ8yQaBAiSrm38Tal1AMh%2BVCzU1l8VdqLYcBW5t2Y4XhJV%2BczOGNSBlfy5e1yZJiWQ%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A00%3A30&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/09 00:00:31</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 21 common frames omitted
+25-04-09.00:01:00.537 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 10^_^2025-04-09 00:01:00^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=GOvDPGSnzLy01y7OKib46WdJg7dgJVZN8i5Zn+s8AOKY3F0mnezZG0mH7WgGJkgl35Zwga9F25vU28ic2kaJoLr4uIAZ3nJJqx6mC9tCidIwJfDg8IPw7RO6LLb9PrIfeaD0sj5FdWjwxcAP04RRcc/Iu+mt4jQquTy9wI/UL24TZ7i4F8bA3NUQe3hhrfpZp2NQUTbZdJARKl3udqOIMtysbH8jvSmqFBnhKL5s67fQeEmmeN4uYl+rHWxKDu8rFmdTjVu+btYUYMTQFWIdRB54ugHLDYkWEaMyxuVVEawrZrczT/+8WlacQNklrDOPoD2ytXQbvG4/Sjd6iQ0xgA==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:01:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=0601d58b174412806002522264827&biz_content={"out_trade_no":"088910639847"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"088910639847","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"G6v42/1jJFY/5ji7Xie9Pm2cgs5eYaV1I47SgB/a8Eta+z4VzpjJlU6N5fguqM3dYCUPYBkEkx3tT759uTVOIcB/w+qd1v27ySiBo8YoGDOdxTtRhju6fDd8DY74RViqdzWRdBawCwwbRCSlPcUnbyDwMSB+yugH8RILQ4MxX3+A5a8CMOxQnuCx95EDeC9POQdqsei/J5k04/9POWFmSQQJcg6FeVJJ13YjzM3nr+h33GjkQPNONR6wjCH00p53wUuwnmyrKjKsHycAzyGz3qupALK48Gcrm4qaajnb1ApSku80LfSyTJrwcODgLYHk6xKHtbIg2gHx1Jpfht7jvg=="}^_^12ms,480ms,27ms^_^trace_id:0601d58b174412806002522264827
+25-04-09.00:01:30.945 [scheduling-1    ] ERROR ProductPort            - 营销结算失败ojK1R7Ka2ruj8LK4HKU5hBGeEsuc
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.settlementMarketPayOrder(ProductPort.java:120)
+	at com.hb.domain.order.service.OrderService.changeOrderPaySuccess(OrderService.java:48)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+25-04-09.00:15:35.036 [scheduling-1    ] WARN  PoolBase               - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5a25efb0 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+25-04-09.00:17:02.593 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^null^_^Windows 10^_^2025-04-09 00:17:02^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=XWZ1P0kzGMRY2tNsfwyAmi7P4JI489fg/tJCfF7fBYJFIX4Q4xGbLN6Z7TiY7cCYzypgqOI2Jk6kS/OdVpF+6FxYYjenjwbqfdf4+bNZRIDyIuh+5SRbGACE2FzRHX9Hx4sSjRbkihh+Jt5smH98Zuz8Rr2DdvSPhZrqxrGJTd0pSP/34tUXF5wypgp31RoSka4xn4Ybz2eXtBgh+Lxgy7NNjrsxvlslJ8GxhhvbhOfDPjr+a+c3gkem2z6UUfLvqqlesH1copN+pvcCCFZRHj7K+A2C8JJrcIIbbhtK+43DewJcFshnH3ozxdiHqprjOKsYfVBUgP0ISutbnbBJiA==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:17:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060389ba174412902163311357852&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^15ms,1789ms,177ms^_^trace_id:060389ba174412902163311357852
+25-04-09.00:17:30.631 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^null^_^Windows 10^_^2025-04-09 00:17:30^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=xEp+RSd1X2MRFzXp/gPVVBCIF3xzxNe/x/htcxr+jDn+nUfJN2T/ATI7Md0k2YXsy2kCEyEuZdcoNsiR3kMNLwAKHlVPZnkFtxOq7CToabz8yUj1lMMbZcQBvq/53OKn23TtnDCvTIGslxPql9u97bSWIZl2WUfLycf9dVkd8SYOen2CSBHVcLvN/IEyeYgCOQLD8TVG/TOaZ4fioxxo3/aD5fthzAr++y3mRQ6Oac0HFIyXFeUgAPHBBwmNqFCvSIZmZfqQCPcM5BZrYjCrZXRNyyE5AAu5lHvXuoHFbHrpEWZS0NjGOgzFFMdEhGHhm6ZoQdBRhCRhnrDcFKJ/mw==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:17:30^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=0601ac3e174412904994823518071&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^29ms,574ms,18ms^_^trace_id:0601ac3e174412904994823518071
+25-04-09.00:18:01.619 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^null^_^Windows 10^_^2025-04-09 00:18:01^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=ojyfKPnrGdAdgfnQpsED7NL85dEx++49NWUsx7IuN90k4Y6Sb+CLfFjOBPqZr5jQ+c+o9z8W+a742pERl/O8t6P5jsa6zfIQEUt8+AK0IsiAsGteBrzHCZVsZVS3BbqYLZIP3/Yv8//j1nDDPHgO1sKkqN1IYrF21Fv/GUi33mBQ9jLwUl+kDH2oHqua7+7P1b3mXiWPCG/AOh7rEyI1SQdoNtYCqqW6hGnqB0eP5ytUEOxbwXl3glAXi9Isy7warH64LDuPzFj2mOjsB8R1QQKvQT4rDTIH+lnwto1b0MCrw6h94t7iUV+2fjg1ABmOYxDiRT0evNTzatSrIvkWUA==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:18:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=0601d58b174412908101261274827&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^27ms,1565ms,15ms^_^trace_id:0601d58b174412908101261274827
+25-04-09.00:18:30.565 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^null^_^Windows 10^_^2025-04-09 00:18:30^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=BqVP+aiKW7yeLpQahHh1bnWa2T638yHGhzM1Zvvz0oHL9dOJ99RT23WI39mNqlqh7iago9AUrbeZp4yeY6rPCgmjp4bqK1CPNNbh9fG3YybnQdtI6moY9gpz/94VloYoXXpYF/yulEu8oBUYuQ3d2dDAH3D8ticl74ZAp+4TYd804zu1THnoKTW+CQ4m4a9xprtm36SBwQ1CkgamtBjHrFrI+5AjSMOCQbzxYKKy802k7uyv6Byc3qOuS1Oj67ARQEKU7KlhqLha5WoTyIvjXvHxA/qNKC7QYrw+kIIpevZzx8ioTzl+Z34gagif8rehQD+4S8Z9PXfjVAqWiThgVw==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:18:30^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060d2b35174412910995370125934&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^15ms,514ms,29ms^_^trace_id:060d2b35174412910995370125934
+25-04-09.00:19:01.343 [scheduling-1    ] ERROR err                    - 2025-04-09 00:19:01^_^alipay.trade.query^_^null^_^10.195.237.254^_^Windows 10^_^alipay-sdk-java-4.38.157.ALL^_^https://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.query&sign=f60cykjIBMAJhahmmRVj4cp5o02S8rTgoZeTKnmlmroa1YJzO9HBAB02Dp262tZYp6kgGQaz9a3ANncdURmBNCFC5IbCGmOHG4dGePDlCU1mLqIDuspFzgikg%2Fdz440Ujk9VzcO4UTabAQFBEnGmbuq7H5rKcr6wA3KRhBXgkS%2B3iBOlxYkP9tyyihRlaJqGtKzKgP9uWygHVyAm8kjFgy2qNiqKEDEnns32UgRvwglq1nAwZKC96zOMxZsGTEcxpks%2F5eoxfCmlP7l3Er3dxgiguqU%2BEsUW43xp3BzxOd660m4SeqDoFVACj4Zd0ZZuHmIZClfLEplixgPZuebxTw%3D%3D&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09+00%3A19%3A00&alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^^_^<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html> <head><title>404 Not Found</title></head> <body bgcolor="white"> <h1>404 Not Found</h1> <p>The requested URL was not found on this server. Sorry for the inconvenience.<br/> Please report this message and include the following information to us.<br/> Thank you very much!</p> <table> <tr> <td>URL:</td> <td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=f60cykjIBMAJhahmmRVj4cp5o02S8rTgoZeTKnmlmroa1YJzO9HBAB02Dp262tZYp6kgGQaz9a3ANncdURmBNCFC5IbCGmOHG4dGePDlCU1mLqIDuspFzgikg%2Fdz440Ujk9VzcO4UTabAQFBEnGmbuq7H5rKcr6wA3KRhBXgkS%2B3iBOlxYkP9tyyihRlaJqGtKzKgP9uWygHVyAm8kjFgy2qNiqKEDEnns32UgRvwglq1nAwZKC96zOMxZsGTEcxpks%2F5eoxfCmlP7l3Er3dxgiguqU%2BEsUW43xp3BzxOd660m4SeqDoFVACj4Zd0ZZuHmIZClfLEplixgPZuebxTw%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A19%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td> </tr> <tr> <td>Server:</td> <td>finmember-480.rz01b.dev.alipay.net</td> </tr> <tr> <td>Date:</td> <td>2025/04/09 00:19:00</td> </tr> </table> <hr/>Powered by Tengine</body> </html> 
+25-04-09.00:19:01.367 [scheduling-1    ] ERROR NoPayNotifyOrderJob    - 检测未接收到或未正确处理的支付回调通知失败
+com.alipay.api.AlipayApiException: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=f60cykjIBMAJhahmmRVj4cp5o02S8rTgoZeTKnmlmroa1YJzO9HBAB02Dp262tZYp6kgGQaz9a3ANncdURmBNCFC5IbCGmOHG4dGePDlCU1mLqIDuspFzgikg%2Fdz440Ujk9VzcO4UTabAQFBEnGmbuq7H5rKcr6wA3KRhBXgkS%2B3iBOlxYkP9tyyihRlaJqGtKzKgP9uWygHVyAm8kjFgy2qNiqKEDEnns32UgRvwglq1nAwZKC96zOMxZsGTEcxpks%2F5eoxfCmlP7l3Er3dxgiguqU%2BEsUW43xp3BzxOd660m4SeqDoFVACj4Zd0ZZuHmIZClfLEplixgPZuebxTw%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A19%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/09 00:19:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1015)
+	at com.alipay.api.AbstractAlipayClient._execute(AbstractAlipayClient.java:921)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:395)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:377)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:372)
+	at com.alipay.api.AbstractAlipayClient.execute(AbstractAlipayClient.java:366)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:46)
+	at sun.reflect.GeneratedMethodAccessor7.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.IOException: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head><title>404 Not Found</title></head>
+<body bgcolor="white">
+<h1>404 Not Found</h1>
+<p>The requested URL was not found on this server. Sorry for the inconvenience.<br/>
+Please report this message and include the following information to us.<br/>
+Thank you very much!</p>
+<table>
+<tr>
+<td>URL:</td>
+<td>http://openapi-sandbox.dl.alipaydev.com/gateway.do?charset=utf-8&amp;method=alipay.trade.query&amp;sign=f60cykjIBMAJhahmmRVj4cp5o02S8rTgoZeTKnmlmroa1YJzO9HBAB02Dp262tZYp6kgGQaz9a3ANncdURmBNCFC5IbCGmOHG4dGePDlCU1mLqIDuspFzgikg%2Fdz440Ujk9VzcO4UTabAQFBEnGmbuq7H5rKcr6wA3KRhBXgkS%2B3iBOlxYkP9tyyihRlaJqGtKzKgP9uWygHVyAm8kjFgy2qNiqKEDEnns32UgRvwglq1nAwZKC96zOMxZsGTEcxpks%2F5eoxfCmlP7l3Er3dxgiguqU%2BEsUW43xp3BzxOd660m4SeqDoFVACj4Zd0ZZuHmIZClfLEplixgPZuebxTw%3D%3D&amp;version=1.0&amp;app_id=9021000132648211&amp;sign_type=RSA2&amp;timestamp=2025-04-09+00%3A19%3A00&amp;alipay_sdk=alipay-sdk-java-4.38.157.ALL&amp;format=json</td>
+</tr>
+<tr>
+<td>Server:</td>
+<td>finmember-480.rz01b.dev.alipay.net</td>
+</tr>
+<tr>
+<td>Date:</td>
+<td>2025/04/09 00:19:00</td>
+</tr>
+</table>
+<hr/>Powered by Tengine</body>
+</html>
+
+	at com.alipay.api.internal.util.WebUtils.getResponseAsString(WebUtils.java:520)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:181)
+	at com.alipay.api.internal.util.WebUtils.doPost(WebUtils.java:142)
+	at com.alipay.api.AbstractAlipayClient.doPost(AbstractAlipayClient.java:1003)
+	... 20 common frames omitted
+25-04-09.00:19:30.437 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 10^_^2025-04-09 00:19:30^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=dvhT2gnb8nAT5vSEH9YQzf9VutZRqeSH/wJUzcCafOi/K1nIQYVlqRpM81Cm5S0BHa96biJLczpl4RLPNH2/7KGvTq30fSeDcZfx5DR79+3YV2HkWS8P7F3LYHuU7KkwE12rLo0uAR6cgsxmj6sqMW2rqJ6lS5kaTdKkzePcCQvtAKitHHACLYj8zprZQkNhl3RxQ+TXSYS9T5czmgAzH8UX6D9+36uoSJEpHmrN5awuXuBiYIqvA38Z10gXGdRRXBcZssWDhiBu4zDihNOLsBfCfuwmLHBgV/Cjm3XuQipyS6eydFf8B4+5uvTeHPbDlU+XzlAmGRBaJj0hKr9W9g==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:19:30^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060d2b35174412916995072055934&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^12ms,402ms,12ms^_^trace_id:060d2b35174412916995072055934
+25-04-09.00:20:01.568 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 10^_^2025-04-09 00:20:01^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=vKesiAg07gPvJqR9eg/jBBDQ2KiLedC1WLlaTG8dmCZNtEWbXKdshknwIQVX9aUG3BZ3MWhjhzW+q3AU206ecKturhW+o0ev+6q8ZNUA8bmMhMjfs9IUxNE2bgX+VlVj0fyX0txYyp87arZ/y4qUmIxXP2FWUAhkkEwvDqhpATCySNrtbR0CJchURT8fQV7+2+Dh4OcVA5bOLGDK0ckd/scjVfA81Z0ebAiKAslDake8PKdZkYLkflr4ZqnLEMCrdSHm7TnJetnlUupCyJjnZM1hAntfp4p9jJi9k4uHTiyMnUnbh3veM64MZyVELdGsBF7z4CasBxFGTUa88wLmhw==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:20:00^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=0601d58b174412920104365474827&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^10ms,1537ms,12ms^_^trace_id:0601d58b174412920104365474827
+25-04-09.00:20:30.489 [scheduling-1    ] ERROR err                    - ErrorScene^_^40004^_^ACQ.TRADE_NOT_EXIST^_^10.195.237.254^_^Windows 10^_^2025-04-09 00:20:30^_^ProtocalMustParams:charset=utf-8&method=alipay.trade.query&sign=icKc/KztGF5jXcNml8ypJ9U6X4yGkRhza7E9mbwRpSOsOfMh9K8u8Vaa/ut6sstkmdY6ffNPW1Zk3ofUmKcHwXTsyIM5uCTnc7N5szjC9KpuNgV3T0KvpA87T6wdlC9iiwnd6q87I9/dKqumrauaL1eD5g2COahTUsrzJAHjjc3xlSJQTfhgtQbRlBvj7/1NhvUYSvq3EmKi09iu1dMZ4Yh1Z2YxQA2D7eb98NczAPGwmb1KkczBcLJqlI+4s2av/ygOm2PHWepy4XrYjAKhcDHH+AGnSvrFH196Wcgcw2/MUXMWsWqwhioOXZDl6ChbbX2Y+LSQPJ6E1XLGvy+a1g==&version=1.0&app_id=9021000132648211&sign_type=RSA2&timestamp=2025-04-09 00:20:30^_^ProtocalOptParams:alipay_sdk=alipay-sdk-java-4.38.157.ALL&format=json^_^ApplicationParams:traceId=060389ba174412922998820227852&biz_content={"out_trade_no":"120863904393"}^_^Body:{"alipay_trade_query_response":{"msg":"Business Failed","code":"40004","out_trade_no":"120863904393","sub_msg":"交易不存在","sub_code":"ACQ.TRADE_NOT_EXIST","receipt_amount":"0.00","point_amount":"0.00","buyer_pay_amount":"0.00","invoice_amount":"0.00"},"sign":"VuiWsoUj2glEEL8fPX3Moeu47vKbQ2s3kiANmLjjU7PYfGWcsATVoVZPVIT8i61h9lULtQD7hZobEkhGiFrDprlZUrI7zs9wzlzqM6w+ZKoaTEzersBu/TeUMmz3ZwMUgh1O+2E5biAK18xNGue+2LLv0iaV3JG93SCbDaGq9z4WaGJLhfyS/Jo8UThlRVtih3w9JzGiMy2JGBpIjT7wVoVWEvB1GhfSy9bYi0gIga41nrtpF39MFYZl4tWxf/mcTZjAUj7zb7frOMmA28EQXmMM1tVHk68yZbIZLd2l2A6QH/f0VuXm8RBfGCCqmQeWAklqb7zBh71SAFqNnsG/OQ=="}^_^9ms,449ms,12ms^_^trace_id:060389ba174412922998820227852
+25-04-09.00:21:05.015 [scheduling-1    ] WARN  PoolBase               - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@56cc7851 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+25-04-09.00:21:08.876 [scheduling-1    ] ERROR ProductPort            - 营销结算失败ojK1R7Ka2ruj8LK4HKU5hBGeEsuc
+com.hb.types.exception.AppException: null
+	at com.hb.infrastructure.adapter.port.ProductPort.settlementMarketPayOrder(ProductPort.java:120)
+	at com.hb.domain.order.service.OrderService.changeOrderPaySuccess(OrderService.java:48)
+	at com.hb.trigger.job.NoPayNotifyOrderJob.exec(NoPayNotifyOrderJob.java:50)
+	at sun.reflect.GeneratedMethodAccessor7.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)

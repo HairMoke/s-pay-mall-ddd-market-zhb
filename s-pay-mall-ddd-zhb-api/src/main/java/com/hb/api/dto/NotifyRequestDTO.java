@@ -14,4 +14,5 @@ public class NotifyRequestDTO {
     private String teamId;
     /** 外部单号 */
     private List<String> outTradeNoList;
+
 }

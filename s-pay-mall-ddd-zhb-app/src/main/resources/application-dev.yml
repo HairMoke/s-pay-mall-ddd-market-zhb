@@ -74,6 +74,16 @@ spring:
       delivery-mode: persistent # 确保全局默认设置为持久化（可选）
     # 消息配置
     config:
+      # 生产者
+      producer:
+        # 主题配置
+        topic_order_pay_success:
+          # 绑定交换机
+          exchange: s_pay_mall_exchange
+          # 消费主题
+          routing_key: topic.order_pay_success
+          # 消费队列
+          queue: s_pay_mall_queue_2_order_pay_success
       consumer:
         # 消费 topic 主题，team_success
         topic_team_success:
@@ -83,6 +93,14 @@ spring:
           routing_key: topic.team_success
           # 消费队列 - 每个系统有自己的消费队列
           queue: s_pay_mall_queue_2_topic_team_success
+        # 主题配置
+        topic_order_pay_success:
+          # 绑定交换机
+          exchange: s_pay_mall_exchange
+          # 消费主题
+          routing_key: topic.order_pay_success
+          # 消费队列
+          queue: s_pay_mall_queue_2_order_pay_success
 
 
 # MyBatis 配置【如需使用记得打开】
@@ -97,7 +115,7 @@ alipay:
   app_id: 9021000132648211
   merchant_private_key: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDG1dEleYfmbjCOPBZy87DHIXwA077Q5CZcYR7O0fIs+Q89Y4+Je6pu9toFba+IyAIkYWOJQIi5Q7uPvSLIqkF9SnKGyj+8l94CoACetdLyi435FTJKkS5PJXF3x/5Oyn+kacVFCs3BXVBKtrCzJpoB32vg1xfuCSOUKeUTxnbOx3tmCzw65cyCmDHH0ChUmuNFoFFAJ7JT42AxmTzpWR+AqJl1gYQgNb+O8S1dC5GNntY52KkuM4HAINdw6j6mNyqJTknbLeTyYEnlH/ZtsgH5ADkBQfhZNXukd8eS9VSjequefpbvhxDmpc5KhBVZVpTaWT+jOKcdJRQqTiNobzUhAgMBAAECggEAL0fo0+ByUHkjUq83J16LSs7LjebMGSAnfxAZI1UJIWiYFyD1oNunS3unnGLYus3UtJHz+U8/M87Hawaunsjdic2KLkMppM74G+ewPg0+fC5zNCe2LcUYHfnpYXJNJq9Aavg70I8hHjnyPdHzcqZbONbH8E81gYTq0PClaG5pEgIyEX3W902b9yTggbox9el5ZVjAXHEOYEOTHc+EqTL85szQ7J+MODtE1jkAl4MIemuR/x0aV90Hjetj54iOVQ5iOqhrB2tFo2RiqXvvaMfHIjSlTfqfrGprFYi5rvdRBcn0CdbgxjlN3SNjBGHNfQNrPS/j3OPz5gPZf4TQQU4hgQKBgQDrLNCVt2WZQg/NFM7/MTx8nCiAxSeimqEnD0q64RX0Jm3pp4bv0W+7eNDPiZGQg87V/sTNGBPmPGHUK0cXW1ysfZocpnI1Vkz9Evl7Oxna4GD3TrYVvxzTofKg/iPFXDL571KCLJpdv3H8U4lYWoTCOGlI5931RjmYEPXK9Niw6wKBgQDYcTbU82SMiZYypwBPxd/9SPkI54b68CisO37UJ/CKExrByPor1b86/oHED1fV+baQnSEb35iFQbn9LccQullSRE0NZ+HYXu7t+RKfZCbfcQDoSnco7Pxo7jgnPlRzdzLEzw7+uyMKC5WXfPIItf/yKaO5i2PhgvLaI1xKrwPPIwKBgAP0VvWNhenT0Iw0Q17LJyc5QP0ZU5dKXldXzHvj+QiH9OUu6ffyX5yZZXl36LizXrD+fbStKPiAH2z/5UwhPyevXP4KVnVLJDRFM2i9D6w8haTi7/Dhq8xrNrc6TsOszzagrZR+x4G4DGSfyvlvXDgf1rVhILxVF/bUoi1tfI9NAoGADIYAdjHfD4KmfifLjNIWM8GVJz6+QKbEs7J9lCj7cgHI+o12bDLh7bfsKjv5CRh5x8RPth0p5gv3hv6vFfiyUmBBVRU9rBdSG9LdkPtqhGM1ejtUyblsoWWnOh4RJN0wwtJ4O6T4Ugx5i1pfZsGhHZHrN0EpdlLtWlHRdUDLJ6ECgYAS2JOmkQ65BTq7jF2XNEfQz1I982Riou8G4VRF5A6JlFJZBuZk0kxNaWzv5Jh7HsZyyeIAwd5sq2qjtDI5T0bmeon3QOc1YmvvbzIgJ4C3pxD6HcB00f1t+XbygYqTVYYCzv/0L4aZhf2czSh2TS/GKZjiUsacHuiDa7yTzTGOzw==
   alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm8bt8YK6Qx4XpA68CqRqOZdRG5h9q87+DtNvGNeFZdhDlqM9ASaI9BlwfMgqXvJub1hx/01HaLkG+T7RbufumiuhnPbKmwVbFnCcUHsVRIQoIFv0fDPD4yA9Sa8nf9PM9JKRm8Tq2R/92C/Td0yC6t7gTopZAfqnsh8c7HwhmLbl8R67UTy1F8FHvgSmr28hMolXBSOAJOmQEQxMwp2oEXPm/TQl9K1BbETzaRqJyQOi+yZPlBEING4AUJl55T68jHpa+CFKcagPGL3L4N56h+LVpY0gND3Jo25vnb0K35PKOEVmhkWJGiuXVvpdac5fOI2uIxIwxyxOio2qZGmnEwIDAQAB
-  notify_url: http://e9365ee.r32.cpolar.top/api/v1/alipay/alipay_notify_url
+  notify_url: http://7edaf78f.r32.cpolar.top/api/v1/alipay/alipay_notify_url
   return_url: http://localhost:63342/s-pay-mall-ddd-market/docs/dev-ops/nginx/html/index.html
   gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
 

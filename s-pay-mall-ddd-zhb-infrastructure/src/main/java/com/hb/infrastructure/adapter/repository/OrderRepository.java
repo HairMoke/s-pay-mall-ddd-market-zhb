@@ -13,6 +13,7 @@ import com.hb.domain.order.model.valobj.MarketTypeVO;
 import com.hb.domain.order.model.valobj.OrderStatusVO;
 import com.hb.infrastructure.dao.IOrderDao;
 import com.hb.infrastructure.dao.po.PayOrder;
+import com.hb.infrastructure.event.EventPublisher;
 import com.hb.types.common.Constants;
 import com.hb.types.event.BaseEvent;
 import org.springframework.stereotype.Repository;
@@ -34,6 +35,9 @@ public class OrderRepository implements IOrderRepository {
 
     @Resource
     private EventBus eventBus;
+
+    @Resource
+    private EventPublisher eventPublisher;
 
     @Override
     public OrderEntity queryUnPayOrder(ShopCartEntity shopCartEntity) {
@@ -112,7 +116,9 @@ public class OrderRepository implements IOrderRepository {
                 .build());
         PaySuccessMessageEvent.PaySuccessMessage paySuccessMessage = paySuccessMessageEventMessage.getData();
 
-        eventBus.post(JSON.toJSONString(paySuccessMessage));
+        // 旧版发送消息方式
+//        eventBus.post(JSON.toJSONString(paySuccessMessage));
+        eventPublisher.publish(paySuccessMessageEvent.topic(), JSON.toJSONString(paySuccessMessage));
     }
 
     @Override
@@ -173,7 +179,10 @@ public class OrderRepository implements IOrderRepository {
 
             PaySuccessMessageEvent.PaySuccessMessage paySuccessMessage = paySuccessMessageEventMessage.getData();
 
-            eventBus.post(JSON.toJSONString(paySuccessMessage));
+            // 旧版发送消息方式
+//            eventBus.post(JSON.toJSONString(paySuccessMessage));
+
+            eventPublisher.publish(paySuccessMessageEvent.topic(), JSON.toJSONString(paySuccessMessage));
         });
     }
 }
